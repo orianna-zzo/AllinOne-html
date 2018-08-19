@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/blog/2015-12/les-mis%C3%A9rables-by-victor-hugo/</loc>
+    <lastmod>2015-12-21T04:05:25-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/blog/2015-12/metamorphosis-by-franz-kafka/</loc>
+    <lastmod>2015-12-21T04:03:46-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/blog/2015-08/use-at-instead-of-head/</loc>
+    <lastmod>2015-08-25T17:09:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/about/</loc>
+    <lastmod>2015-08-22T06:42:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/blog/</loc>
+    <lastmod>2015-08-22T06:42:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/about/colophon/</loc>
+    <lastmod>2015-08-22T06:28:26-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/code/</loc>
+    <lastmod>2015-08-19T20:29:37-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/</loc>
+    <lastmod>2015-12-21T04:05:25-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
