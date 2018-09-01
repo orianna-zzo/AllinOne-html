@@ -6,9 +6,46 @@
     <description>Recent content in Tags on ZHENG Zi&#39;ou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zn-cmn-Hans</language>
+    <lastBuildDate>Sun, 07 Jan 2018 11:05:25 +0800</lastBuildDate>
     
 	<atom:link href="https://orianna-zzo.github.io/AllinOne-html/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blog</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/tags/blog/</link>
+      <pubDate>Sun, 07 Jan 2018 11:05:25 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/tags/docker/</link>
+      <pubDate>Sun, 07 Jan 2018 11:05:25 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/tags/hugo/</link>
+      <pubDate>Sun, 07 Jan 2018 11:05:25 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>环境配置</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 07 Jan 2018 11:05:25 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

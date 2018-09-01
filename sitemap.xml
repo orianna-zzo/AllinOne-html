@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/blog/2018-01/blog%E5%85%BB%E6%88%90%E8%AE%B02-hugo-docker%E5%9C%A8github%E4%B8%8A%E5%BB%BA%E7%AB%8Bblog/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/blog/2015-12/les-mis%C3%A9rables-by-victor-hugo/</loc>
     <lastmod>2015-12-21T04:05:25-06:00</lastmod>
   </url>
@@ -28,13 +33,25 @@
   </url>
   
   <url>
-    <loc>https://orianna-zzo.github.io/AllinOne-html/about/colophon/</loc>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/about/about-this-site/</loc>
     <lastmod>2015-08-22T06:28:26-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://orianna-zzo.github.io/AllinOne-html/code/</loc>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/moment/</loc>
     <lastmod>2015-08-19T20:29:37-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/tags/blog/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/series/blog%E5%85%BB%E6%88%90%E8%AE%B0/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -43,18 +60,44 @@
   </url>
   
   <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/tags/docker/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/tags/hugo/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/series/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/tags/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/</loc>
-    <lastmod>2015-12-21T04:05:25-06:00</lastmod>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/categories/%E6%9D%82%E6%8A%80%E6%B5%85%E5%B0%9D/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2018-01-07T11:05:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
