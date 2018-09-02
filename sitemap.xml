@@ -105,6 +105,12 @@
   </url>
   
   <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/</loc>
+    <lastmod>2018-08-18T20:14:59+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/tags/sass/</loc>
     <lastmod>2018-08-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -118,12 +124,6 @@
   
   <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/tags/</loc>
-    <lastmod>2018-08-18T20:14:59+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://orianna-zzo.github.io/AllinOne-html/</loc>
     <lastmod>2018-08-18T20:14:59+08:00</lastmod>
     <priority>0</priority>
   </url>
