@@ -6,20 +6,10 @@
     <description>Recent content in About on ZHENG Zi&#39;ou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zn-cmn-Hans</language>
-    <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://orianna-zzo.github.io/AllinOne-html/about/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About This Site</title>
-      <link>https://orianna-zzo.github.io/AllinOne-html/about/about-this-site/</link>
-      <pubDate>Sat, 22 Aug 2015 06:28:26 -0700</pubDate>
-      
-      <guid>https://orianna-zzo.github.io/AllinOne-html/about/about-this-site/</guid>
-      <description>This website is a personal homepage.
-The site is built with Hugo—a static site generator made with Go. The website source code is available on GitHub. The posts are written in Markdown.</description>
-    </item>
     
   </channel>
 </rss>

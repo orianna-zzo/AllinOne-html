@@ -6,36 +6,35 @@
     <description>Recent content in Blog on ZHENG Zi&#39;ou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zn-cmn-Hans</language>
-    <lastBuildDate>Sun, 07 Jan 2018 11:05:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Aug 2018 20:14:59 +0800</lastBuildDate>
     
 	<atom:link href="https://orianna-zzo.github.io/AllinOne-html/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blog养成记(2) Hugo&#43;Docker在Github上建立Blog</title>
-      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-01/blog%E5%85%BB%E6%88%90%E8%AE%B02-hugo-docker%E5%9C%A8github%E4%B8%8A%E5%BB%BA%E7%AB%8Bblog/</link>
-      <pubDate>Sun, 07 Jan 2018 11:05:25 +0800</pubDate>
+      <title>Blog养成记(14) 让同页滚动更平滑</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B014-%E8%AE%A9%E5%90%8C%E9%A1%B5%E6%BB%9A%E5%8A%A8%E6%9B%B4%E5%B9%B3%E6%BB%91/</link>
+      <pubDate>Sat, 18 Aug 2018 20:14:59 +0800</pubDate>
       
-      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-01/blog%E5%85%BB%E6%88%90%E8%AE%B02-hugo-docker%E5%9C%A8github%E4%B8%8A%E5%BB%BA%E7%AB%8Bblog/</guid>
-      <description>Introduction 正如上一篇说的，我选择了Hugo作为静态网页生成器。Hugo是一个用go写的静态网页生成器，它被提及最多的优点就是它生成网站的速度快。此外，Hugo的安装配置看上去也并不麻烦，直接在这里选择合适的版本和环境下载对应release版并配置环境变量即可。整体来说非常方便。
-在决定使用Hugo之外，我还决定用Docker来做环境配置。因为新买了mac，不愿意弄乱环境，也希望以后能够跨平台使用，方便配置，更重要的是，最近对docker感兴趣，想实践一下。Docker是一个开源的应用容器引擎，可以方便地将不同容器间的环境进行隔离，但又比虚拟机更轻量化，能更快速启动。与Docker相关的内容我会在另一个Docker系列进行详细说明，这里主要还是与建立Blog相关的使用为主。
-网上使用Hugo写blog的内容很多，使用docker的也很多，但使用docker来搭建hugo编写环境并不多，我也是在一步步摸索中。那么，就跟着我一起开始尝试吧！
-Hugo的docker环境配置 Docker安装 在Mac中可以使用Homebrew进行安装：
-$ brew cask install docker  若是Windows或者其他操作系统，可以在这里选择你的操作系统下载相应版本进行安装并配置环境变量。
-获得Hugo开发镜像 我在docker hub上查找了下，截止目前并没有官方镜像，都是用户自己建立并上传的镜像。Hugo的Github中的确有建立docker镜像的Dockerfile，但是我试了几次都未成功，最后决定建立自己的Hugo docker镜像，顺便学习下Dockerfile。
-直接获得镜像 如果只想获得开发镜像，可以选择从docker hub上下载个镜像，选择还挺多，欢迎下载我建立的docker镜像，在docker hub中只有33MB，只需要在终端中输入下面的命令即可：
-$ docker pull orianna/hugo  该镜像可以在docker hub中找到，点这里是在docker hub上的repo。
-接下去在终端输入下面这行命令可以查看你现在有的镜像信息：
-$ docker images  你可以发现orianna/hugo只有85.7MB大小.
-自建镜像 或者，你可以选择自己建立镜像。如果已经获得了Hugo镜像，可以略过这一部分。
-我建立Hugo docker的Dockerfile放在Github上，大家可以去参考试试。现在是v0.46版，只有85.7MB大小的镜像，后续随着开发可能会有新的变化。
-将所有内容clone到当前目录：
-$ git clone https://github.com/orianna-zzo/hugo-docker-dev.git  打开Dockerfile，其中HUGO_VERSION是Hugo官方的发布版本，可以选择你需要的Hugo版本进行修改。在v0.3的Dockerfile中，定义了两个挂载文件夹，一个是/hugo-site用来挂载你的Hugo源码，另一个是static-site用来定义Hugo生成静态网页的输出文件夹。
-除了基础的下载Hugo执行文件和pygments高亮外，Dockerfile还定义了每次打开容器都会执行start.sh。该shell脚本只有一个作用，如果在当前文件夹中包含run.sh文件则执行该文件，若不存在则打开一个终端，在该终端内你可以自由尝试hugo命令。run.sh的作用主要是便于不用反复输入常用命令，可将常用命令直接写入其中保持注释状态，使用时只需要将要使用的命令保持正常状态即可。如果你clone了这个repository，在site-sample中包含了一个样例run.sh。(v2.0) 在这个repo的文件夹中打开终端，输入下面命令以建立镜像：
-$ docker build -t orianna/hugo:0.46 -t orianna/hugo:latest .  其中-t给这个镜像打上tag。根据docker hub的要求，非官方镜像的镜像名称需要为你的docker-name/镜像名称，:后为该镜像的tag。-t可以有多个。注意不要忘记最后的.，它表示使用该文件夹中除了.dockerignore 中的其他内容作为建立镜像的上下文内容。
-接下去你就可以在终端输入下面这行命令来查看镜像信息：
-$ docker images  至此，你已经获得了Hugo的docker镜像了。
-尝试使用Hugo 假设您clone了上文提到的内容，可以在该项目中使用下面命令启动容器来试用Hugo docker：</description>
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B014-%E8%AE%A9%E5%90%8C%E9%A1%B5%E6%BB%9A%E5%8A%A8%E6%9B%B4%E5%B9%B3%E6%BB%91/</guid>
+      <description>上一期说到增加toc侧边栏，但是直接跳转非常突兀，因此特地找了让同页跳转滚动更平滑的插件。使用步骤如下：
+配置smooth-scroll插件 首先下载smooth-scroll插件，将其中jquery.smooth-scroll.js放入js文件夹中。
+再在&amp;lt;script&amp;gt;中引入该js：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/vendors/jquery.smooth-scroll.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  基础使用 可以在自己的js文件中加入下面的代码
+// Bind the hashchange event listener $(window).bind(&#39;hashchange&#39;, function (event) { $.smoothScroll({ // Replace &#39;#/&#39; with &#39;#&#39; to go to the correct target scrollTarget: decodeURI(location.hash.replace(/^\#\/?/, &#39;#&#39;)) }); }); $(&#39;a[href*=&amp;quot;#&amp;quot;]&#39;) .bind(&#39;click&#39;, function (event) { // Remove &#39;#&#39; from the hash. var hash = this.hash.replace(/^#/, &#39;&#39;) if (this.pathname === location.pathname &amp;amp;&amp;amp; hash) { event.preventDefault(); // Change &#39;#&#39; (removed above) to &#39;#/&#39; so it doesn&#39;t jump without the smooth scrolling location.</description>
+    </item>
+    
+    <item>
+      <title>Blog养成记(11) 给网站加个小icon</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B011-%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%AA%E5%B0%8Ficon/</link>
+      <pubDate>Mon, 13 Aug 2018 00:14:19 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B011-%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%AA%E5%B0%8Ficon/</guid>
+      <description> 这部分其实很简单，只需要在index.html的&amp;lt;head&amp;gt;部分增加以下一句话就好：
+&amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; href=&amp;quot;/img/aviconfile.ico&amp;quot; &amp;gt;  不过，既然是要做主题，肯定是要用模板变量的么。因此，在模板中的增加以下内容：
+&amp;lt;!-- Icon --&amp;gt; &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; {{ if .Site.Params.faviconfile }} href=&amp;quot;/{{ .Site.Params.faviconfile }}&amp;quot; {{ else if.Site.Params.avatar}} href=&amp;quot;/{{ .Site.Params.avatar }}&amp;quot; {{ end }} &amp;gt;  其中faviconfile是在config.toml中定义的网站图标的路径，avatar是在其中定义的个人头像照片的路径。这句话就是如果定义了网站图标就使用网站图标，如果不存在网站图标就使用个人头像。
+原本想尝试在网站图标上加个蒙版的，但是好像只能有已有的图片。方的一张图感觉太死板，于是我就将之前画画的签名截了一个姓下来抠了下图，感觉还不错。
+版本控制    Version Action Time     1.0 Init 2018-08-13    </description>
     </item>
     
   </channel>

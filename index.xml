@@ -6,79 +6,180 @@
     <description>Recent content on ZHENG Zi&#39;ou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zn-cmn-Hans</language>
-    <lastBuildDate>Sun, 07 Jan 2018 11:05:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Aug 2018 20:14:59 +0800</lastBuildDate>
     
 	<atom:link href="https://orianna-zzo.github.io/AllinOne-html/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blog养成记(2) Hugo&#43;Docker在Github上建立Blog</title>
-      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-01/blog%E5%85%BB%E6%88%90%E8%AE%B02-hugo-docker%E5%9C%A8github%E4%B8%8A%E5%BB%BA%E7%AB%8Bblog/</link>
-      <pubDate>Sun, 07 Jan 2018 11:05:25 +0800</pubDate>
+      <title>Blog养成记(14) 让同页滚动更平滑</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B014-%E8%AE%A9%E5%90%8C%E9%A1%B5%E6%BB%9A%E5%8A%A8%E6%9B%B4%E5%B9%B3%E6%BB%91/</link>
+      <pubDate>Sat, 18 Aug 2018 20:14:59 +0800</pubDate>
       
-      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-01/blog%E5%85%BB%E6%88%90%E8%AE%B02-hugo-docker%E5%9C%A8github%E4%B8%8A%E5%BB%BA%E7%AB%8Bblog/</guid>
-      <description>Introduction 正如上一篇说的，我选择了Hugo作为静态网页生成器。Hugo是一个用go写的静态网页生成器，它被提及最多的优点就是它生成网站的速度快。此外，Hugo的安装配置看上去也并不麻烦，直接在这里选择合适的版本和环境下载对应release版并配置环境变量即可。整体来说非常方便。
-在决定使用Hugo之外，我还决定用Docker来做环境配置。因为新买了mac，不愿意弄乱环境，也希望以后能够跨平台使用，方便配置，更重要的是，最近对docker感兴趣，想实践一下。Docker是一个开源的应用容器引擎，可以方便地将不同容器间的环境进行隔离，但又比虚拟机更轻量化，能更快速启动。与Docker相关的内容我会在另一个Docker系列进行详细说明，这里主要还是与建立Blog相关的使用为主。
-网上使用Hugo写blog的内容很多，使用docker的也很多，但使用docker来搭建hugo编写环境并不多，我也是在一步步摸索中。那么，就跟着我一起开始尝试吧！
-Hugo的docker环境配置 Docker安装 在Mac中可以使用Homebrew进行安装：
-$ brew cask install docker  若是Windows或者其他操作系统，可以在这里选择你的操作系统下载相应版本进行安装并配置环境变量。
-获得Hugo开发镜像 我在docker hub上查找了下，截止目前并没有官方镜像，都是用户自己建立并上传的镜像。Hugo的Github中的确有建立docker镜像的Dockerfile，但是我试了几次都未成功，最后决定建立自己的Hugo docker镜像，顺便学习下Dockerfile。
-直接获得镜像 如果只想获得开发镜像，可以选择从docker hub上下载个镜像，选择还挺多，欢迎下载我建立的docker镜像，在docker hub中只有33MB，只需要在终端中输入下面的命令即可：
-$ docker pull orianna/hugo  该镜像可以在docker hub中找到，点这里是在docker hub上的repo。
-接下去在终端输入下面这行命令可以查看你现在有的镜像信息：
-$ docker images  你可以发现orianna/hugo只有85.7MB大小.
-自建镜像 或者，你可以选择自己建立镜像。如果已经获得了Hugo镜像，可以略过这一部分。
-我建立Hugo docker的Dockerfile放在Github上，大家可以去参考试试。现在是v0.46版，只有85.7MB大小的镜像，后续随着开发可能会有新的变化。
-将所有内容clone到当前目录：
-$ git clone https://github.com/orianna-zzo/hugo-docker-dev.git  打开Dockerfile，其中HUGO_VERSION是Hugo官方的发布版本，可以选择你需要的Hugo版本进行修改。在v0.3的Dockerfile中，定义了两个挂载文件夹，一个是/hugo-site用来挂载你的Hugo源码，另一个是static-site用来定义Hugo生成静态网页的输出文件夹。
-除了基础的下载Hugo执行文件和pygments高亮外，Dockerfile还定义了每次打开容器都会执行start.sh。该shell脚本只有一个作用，如果在当前文件夹中包含run.sh文件则执行该文件，若不存在则打开一个终端，在该终端内你可以自由尝试hugo命令。run.sh的作用主要是便于不用反复输入常用命令，可将常用命令直接写入其中保持注释状态，使用时只需要将要使用的命令保持正常状态即可。如果你clone了这个repository，在site-sample中包含了一个样例run.sh。(v2.0) 在这个repo的文件夹中打开终端，输入下面命令以建立镜像：
-$ docker build -t orianna/hugo:0.46 -t orianna/hugo:latest .  其中-t给这个镜像打上tag。根据docker hub的要求，非官方镜像的镜像名称需要为你的docker-name/镜像名称，:后为该镜像的tag。-t可以有多个。注意不要忘记最后的.，它表示使用该文件夹中除了.dockerignore 中的其他内容作为建立镜像的上下文内容。
-接下去你就可以在终端输入下面这行命令来查看镜像信息：
-$ docker images  至此，你已经获得了Hugo的docker镜像了。
-尝试使用Hugo 假设您clone了上文提到的内容，可以在该项目中使用下面命令启动容器来试用Hugo docker：</description>
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B014-%E8%AE%A9%E5%90%8C%E9%A1%B5%E6%BB%9A%E5%8A%A8%E6%9B%B4%E5%B9%B3%E6%BB%91/</guid>
+      <description>上一期说到增加toc侧边栏，但是直接跳转非常突兀，因此特地找了让同页跳转滚动更平滑的插件。使用步骤如下：
+配置smooth-scroll插件 首先下载smooth-scroll插件，将其中jquery.smooth-scroll.js放入js文件夹中。
+再在&amp;lt;script&amp;gt;中引入该js：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/vendors/jquery.smooth-scroll.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  基础使用 可以在自己的js文件中加入下面的代码
+// Bind the hashchange event listener $(window).bind(&#39;hashchange&#39;, function (event) { $.smoothScroll({ // Replace &#39;#/&#39; with &#39;#&#39; to go to the correct target scrollTarget: decodeURI(location.hash.replace(/^\#\/?/, &#39;#&#39;)) }); }); $(&#39;a[href*=&amp;quot;#&amp;quot;]&#39;) .bind(&#39;click&#39;, function (event) { // Remove &#39;#&#39; from the hash. var hash = this.hash.replace(/^#/, &#39;&#39;) if (this.pathname === location.pathname &amp;amp;&amp;amp; hash) { event.preventDefault(); // Change &#39;#&#39; (removed above) to &#39;#/&#39; so it doesn&#39;t jump without the smooth scrolling location.</description>
     </item>
     
     <item>
-      <title>Les Misérables by Victor Hugo</title>
-      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2015-12/les-mis%C3%A9rables-by-victor-hugo/</link>
-      <pubDate>Mon, 21 Dec 2015 04:05:25 -0600</pubDate>
+      <title>Blog养成记(11) 给网站加个小icon</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B011-%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%AA%E5%B0%8Ficon/</link>
+      <pubDate>Mon, 13 Aug 2018 00:14:19 +0800</pubDate>
       
-      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2015-12/les-mis%C3%A9rables-by-victor-hugo/</guid>
-      <description>Although this detail has no connection whatever with the real substance of what we are about to relate, it will not be superfluous, if merely for the sake of exactness in all points, to mention here the various rumors and remarks which had been in circulation about him from the very moment when he arrived in the diocese.
-Bool True or false, that which is said of men often occupies as important a place in their lives, and above all in their destinies, as that which they do.</description>
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B011-%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%AA%E5%B0%8Ficon/</guid>
+      <description> 这部分其实很简单，只需要在index.html的&amp;lt;head&amp;gt;部分增加以下一句话就好：
+&amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; href=&amp;quot;/img/aviconfile.ico&amp;quot; &amp;gt;  不过，既然是要做主题，肯定是要用模板变量的么。因此，在模板中的增加以下内容：
+&amp;lt;!-- Icon --&amp;gt; &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; {{ if .Site.Params.faviconfile }} href=&amp;quot;/{{ .Site.Params.faviconfile }}&amp;quot; {{ else if.Site.Params.avatar}} href=&amp;quot;/{{ .Site.Params.avatar }}&amp;quot; {{ end }} &amp;gt;  其中faviconfile是在config.toml中定义的网站图标的路径，avatar是在其中定义的个人头像照片的路径。这句话就是如果定义了网站图标就使用网站图标，如果不存在网站图标就使用个人头像。
+原本想尝试在网站图标上加个蒙版的，但是好像只能有已有的图片。方的一张图感觉太死板，于是我就将之前画画的签名截了一个姓下来抠了下图，感觉还不错。
+版本控制    Version Action Time     1.0 Init 2018-08-13    </description>
     </item>
     
     <item>
-      <title>Metamorphosis by Franz Kafka</title>
-      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2015-12/metamorphosis-by-franz-kafka/</link>
-      <pubDate>Mon, 21 Dec 2015 04:03:46 -0600</pubDate>
+      <title>音乐剧《Cat》repo</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/%E9%9F%B3%E4%B9%90%E5%89%A7catrepo/</link>
+      <pubDate>Sun, 12 Aug 2018 23:03:12 +0800</pubDate>
       
-      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2015-12/metamorphosis-by-franz-kafka/</guid>
-      <description>Part One One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.
- He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.
- The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.</description>
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/%E9%9F%B3%E4%B9%90%E5%89%A7catrepo/</guid>
+      <description> 观剧档案 剧名：音乐剧《Cat》 观剧地点：上海大剧院 观剧时间：2018年8月1日 19:30 观剧位置：8排1座
+题外话 看着时间还算早，想买个大鸡排，结果来福士地下一楼的豪大大没了，逛了一圈不知道吃什么，想要还能接受且速度快的，纠结良久决定肯德基。来到肯德基手机下单一个老北京，然后就后悔了，肯德基里等的人人山人海，等了快15min还早着的时候，我纠结了一下，天大地大，看戏最大，于是放弃鸡肉卷直奔大剧院。
+Repo 位置 大剧院的8排1视野正好，不会觉得太远也不会太近（虽然再近点可以将舞者的表情看得更仔细一些），正视前方就能看到舞台。正中很爽，不过看《猫》重点要调戏🐈啊，走廊位置和第一排绝对是最好的位置，啊啊啊啊啊！1排正中有机会和摇滚猫1v1互动，走廊也有不少和猫互动的机会。整场戏，演员们多次下舞台和观众互动，算是我看到现在互动最多的剧了（不包括浸入式话剧）。猫中场休息还有20个和长老合影的机会，很幸运拿到第18个合影券，就在一排前面，所以位置靠前很重要。
+舞美 第一眼看到就好喜欢这个舞台设计。舞台很好看，放置了各种各样放大版的靴子、伞、鱼骨头，这些道具布置从舞台上一直蔓延到舞台下，感觉非常身临其境。台左是一辆车，台右是管道，中间一个大大的月亮。虽然基本都是一个场景，但也有一些变化，比如在舞台上搭出一个火车头，魅力猫重生（这一场灯光还是很炫的）。
+舞者表演 猫的舞者很多，而且每个都跳的超级好，所以现场看感觉很燃。上一个这么看重舞蹈的音乐剧可能就是西区故事，然而就音乐和情节上来说，猫还是更上一筹。毕竟不是哪里都能找到这么多都唱跳俱佳的舞者来演猫，猫的舞蹈只要一垮，基本就没什么好看的了。而且对于猫来说，很难说谁是主角，每只猫都有一段故事一个唱段，千猫千面，而且音乐还很听。
+整体评价 其实原本想着猫的碟片看了不少，就想着要不省下钱看其他的。但看了现场之后，超级庆幸买了这场的票，这是我难得买的全价、原价、超过1000的VIP票，心疼钱包一分钟。猫是那种我觉得短期内国内难以排好的音乐剧，原谅我没看之前中文版的，说不定不错呢，这就需要精心的演员挑选了（迪士尼的那些说不定可以），如果演员跳的不好，唱得不好，这部剧就垮了。
+猫是那种在家看视频可能很难静得下心看完整场，因为故事性很弱，唱段很好听很有意思、舞蹈也很赞，但也不是属于很炸的那种，然而在现场，有演员魅力和互动加成，体验感就超级好。然而如果买的比较靠后的山顶，想来也不会有和看视频很大的不同，所以位置对这部剧超级重要。
+此外，上海大剧院比文广小不少，听上去音效也好上不好，不会有那种就听到电音轰耳确听不清楚演员歌声的情况，整体音效控制的很好。整体来说，超级喜欢，如果不是这么贵，会有冲动再刷的一部剧，果然不愧称之为四大（虽然是有限定词的四大）。
+版本控制    Version Action Time     1.0 Init 2018-08-12    </description>
     </item>
     
     <item>
-      <title>Use @ instead of HEAD</title>
-      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2015-08/use-at-instead-of-head/</link>
-      <pubDate>Tue, 25 Aug 2015 17:09:14 -0500</pubDate>
+      <title>前端试水(2) 使用docker镜像的Sass配置</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B42-%E4%BD%BF%E7%94%A8docker%E9%95%9C%E5%83%8F%E7%9A%84sass%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 02 Aug 2018 15:49:22 +0800</pubDate>
       
-      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2015-08/use-at-instead-of-head/</guid>
-      <description>I recently discovered that from git version 1.8.5 onwards, @ can replace HEAD:
-$ git reset --hard @~2 $ git rebase -i @~10 $ git diff @~2..@~3  And also in most scenarios HEAD can be left out completely, so you can say:
-$ git reset -- @{2}  instead of:
-$ git reset -- HEAD@{2}  It takes some getting used to, but it&amp;rsquo;s definitely faster than typing HEAD.</description>
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B42-%E4%BD%BF%E7%94%A8docker%E9%95%9C%E5%83%8F%E7%9A%84sass%E9%85%8D%E7%BD%AE/</guid>
+      <description>前言 半年前，由于终于将博客主题初版设计出来准备开始实施，在less和sass中纠结良久选择了sass。为了保持环境纯净性，想用docker装sass，用node-sass，试了几次中间都失败，无奈放弃。几乎半年后的今天，莫名又开始有搭建网页的欲望，于是又开始折腾。不过这次运气不错，终于折腾成功。
+Sass是什么 Sass 是一个 css的预编译器。它在css语法的基础上，引入了更多的变量、规则等功能，可以帮助css的组织结构变得更合理和优雅，或者说更像一门编程语言，从而提高开发和维护效率。通俗说，就是在css上再套层更结构化的语法，帮助对样式进行组织和管理，再通过编译得到最终的css样式。
+与sass对标的是less，具体哪个更好对于初学者来说难以分辨和选择，但Bootstrap4抛弃了less转而选择sass和sass更大的社群都提供了选择了sass的理由。
+Sass选择 Sass vs Scss Sass实际上有两种语法，针对不同的后缀名称.sass和.scss。
+.sass是最早的语法，使用缩进而不是{}来表示嵌套，用换行而不是;来分隔属性，如下：
+$font-stack: Helvetica, sans-serif $primary-color: #333 body font: 100% $font-stack color: $primary-color  另一种.scss的格式仅在css3的语法基础上进行扩展，如下：
+$font-stack: Helvetica, sans-serif; $primary-color: #333; body { font: 100% $font-stack; color: $primary-color; }  对于码农来说，.scss相对更符合习惯一些，所以之后会选择后者。
+Ruby Sass vs Libsass vs Dart Sass 在官网最下方可以看到三个不同的Sass实现。
+Ruby Sass是最早的Sass，网上很多资料都是基于ruby的，不过这个实现版本作者之后不会再更新维护了。
+Libsass是使用C进行实现的版本，所以这个版本速度最快，Sassc就是在Libsass外套了一层wrapper。不过该版本的更新相对没有那么频繁和活跃，毕竟不是主要更新的实现版本。
+Dart Sass是替代Ruby Sass的实现版本，也是现在最主要的开发版本，新的功能也会主要在该实现版本中先进行集成。
+编译环境配置 估计很少有人像我这样折腾又莫名对一些点特别执着（或者说钻牛角尖）。当初一心想用docker把所有和开发环境配置相关的整理起来，折腾node-sass的dockerfile好久以失败告终。这次终于找到一个可以用的sass环境镜像，并根据此建立了自己的docker镜像，具体配置及使用方法在Libsass Docker。但由于该镜像基于libsass，一些功能并没有集成（比如--watch），所以又基于dart sass生成一版镜像，具体方法在Dart Sass Docker。
+两种镜像的比较如下：
+    Libsass Docker Dart Sass Docker     Size 8.</description>
     </item>
     
     <item>
-      <title>About This Site</title>
-      <link>https://orianna-zzo.github.io/AllinOne-html/about/about-this-site/</link>
-      <pubDate>Sat, 22 Aug 2015 06:28:26 -0700</pubDate>
+      <title>前端试水(1) 前端技术路线</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B41-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Wed, 01 Aug 2018 10:23:48 +0800</pubDate>
       
-      <guid>https://orianna-zzo.github.io/AllinOne-html/about/about-this-site/</guid>
-      <description>This website is a personal homepage.
-The site is built with Hugo—a static site generator made with Go. The website source code is available on GitHub. The posts are written in Markdown.</description>
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B41-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/</guid>
+      <description> 前言 对于前端的了解欲望实际上是从想对博客主题进行修改开始的。但是前端这部分一直对我来说是个谜，虽然这些名词都能搜索到，但一直傻傻的不得其门而入。总算在一年后的今天，尽管还有很多地方暂时是迷雾状态，但貌似略了解一点前端的整体框架。现在算是开了新的一个系列，在此算是记录一下我了解的前端的技术路线，如果那些和我一样的前端小白们能通过这个也大概了解一点到底现在需要学的、用的是什么，就再好不过了。
+对了，先声明下，这篇是作为非前端工程师不负责任的认知，个人觉得对于一个外行，且也并没有打算在这一行进行深入，仅作为快速了解、应用的人来说应该是个不错的交流。
+技术分工 既然说到前端技术路线，那就需要先确定下前端是什么。
+前端，通俗来说是和后端所对应的，通常指用户所能看到的网页以及交互的部分。一般来说，和用户直接打交道的都是前端，前端向后端请求数据以及提交数据，后端对用户提交的数据进行解析、服务器调度与功能操作，再返回数据给前端。所以我理解的前端的部分主要分成以下几个部分：前端的界面UI及交互UX，前端数据获取request与解析，前端数据提交返回。
+通常，前端UI大多涉及静态页面html及css样式，但若需要一些动态交互和动作，一般都离不开js的开发。对于数据获取、提交等数据绑定的功能，更是离不开js大法。一般常说的vue.js、react.js都提供了不少相关的功能组件，便于前端工程师快速开发。
+此外常听到的工具还有gulp、webpack等主要针对自动化、打包的工具，针对的功能点会有些不同，但具体还未深入研究。
+静态页面分工 一般网上大多数都在讨论和学习js大法，毕竟通过上段对于简单技术分工和技能点来说，js占据了非常重要的位置。但对于初学者来说，一般接触最多的是静态页面，毕竟很多时候只需要做个简单demo，或者是搭建博客界面之类的简单网页，需要的是轻量级的敏捷开发即可，而静态页面是与用户最直接的窗口。比如我来说，开始需要接触也是因为对想生成自己的博客主题，这就不能不开始学习这一部分。
+虽然说起来css和html不难，语法真不难，但就是因为它们太简单，中间的样式调整、覆盖、冲突的逻辑实在是难以捉摸，调整起来拆东墙补西墙，一点也不够结构化成体系。所以对于静态页面也可以分成css样式定义和html静态页面生成这两部分。
+css样式 css比较难以结构化，可以使用css的预编译器来编写，可以使之更易于管理。常用的预编译器有sass和less。
+除了有css预编译的利器外，对于敏捷开发来说，还有一些css样式库，比如大名鼎鼎的bootstrap，虽然bootstrap也集成了一些js和组件，但基本主要用作css布局用的样式库。尽管bootstrap也被称为前端框架，但是和vue以及react等的框架并不是一个含义，bootstrap更多是css样式层面的。
+html静态页面生成 有了css样式总是要生成静态页面的，这就需要生成html静态页面。最简单的就是直接写html，确定html布局，但是这样会很繁琐。因此有了不少静态页面生成器，比如我使用的hugo，还有jekyll、hexo。有了这些生成器，只需要定义html模板，然后使用模板，以后对于内容进行删减也不需要对html直接进行修改。生成了静态页面后就可以托管在服务器上。
+网页的生成也并不是总需要生成最重的静态页面的，比如python的轻量级网页应用框架flask，只要运行，可以自动调用html模板生成网页。
+版本控制    Version Action Time     1.0 Init 静态页面路线 2018-08-05    </description>
+    </item>
+    
+    <item>
+      <title>中文版音乐剧《长腿叔叔》repo</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-05/%E4%B8%AD%E6%96%87%E7%89%88%E9%9F%B3%E4%B9%90%E5%89%A7%E9%95%BF%E8%85%BF%E5%8F%94%E5%8F%94repo/</link>
+      <pubDate>Sat, 26 May 2018 16:37:59 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-05/%E4%B8%AD%E6%96%87%E7%89%88%E9%9F%B3%E4%B9%90%E5%89%A7%E9%95%BF%E8%85%BF%E5%8F%94%E5%8F%94repo/</guid>
+      <description> 观剧档案 剧名：中文版音乐剧《长腿叔叔》
+出品方：聚橙
+观剧地点：上海兰心大戏院
+观剧时间：2018年5月25日 19:30
+观剧位置：12排18座
+杰维斯：丁辉
+乔若莎：陈希琰
+碎碎念… 好友说有中文版音乐剧《长腿叔叔》的票，问何时想看可以和她说。Jade已经上周去看过，所以就带着同事和老妈周五走起了。周四天还不错，周五就开始下大雨……有些可惜，好在就只有在散场时下了大雨，等出了地铁雨也停了。
+Repo 位置 兰心不大，所以12排就已经在后半场了，18座在左边区域最靠走廊的位置。兰心阶梯也不明显，但是好在舞台够高，视野还是不错的。我的位置比较靠近观众入口，所以受迟到的观众以及中途离开的人影响很大，而且还有时不时工作人员到前排制止观众拍照，或多或少会有些影响。
+舞美 总的来说布景非常简单，舞台整体背景是一个书房，后半个舞台基本都是长腿叔叔的演出区域，前半个舞台基本都是乔若莎的世界。偶尔布景更换粗糙地吸引了大家的目光，偶尔乔若莎左手给右手送礼物，一下子会有些摸不着头脑，就听着后座的观众说，这不就自己送自己么，捂脸。此外，过了很久我才意识到总是有一闪一闪灯光毫无规则闪过的书架上写着地点和时间。因为我只远远看清了Manhattan，其他怎么努力也看不见，兰心没有字幕，捂脸。
+舞者表演 看戏前没意识到真的只有两个演员。女演员第一首歌没有反应过来唱的是什么，但看完整场，陈希琰的表演非常稳定，声音也比较稳，虽然算不上惊艳，但整体还不错。丁辉的歌声就逊色很多了，有些时候能够较为明显听出走音，真是明显为他捏一把汗。题外话，说到长腿叔叔，其实感觉刘阳特别符合形象设定呢。
+整体评价 上半场读了N封信后，就猜想是否整部剧都在读信吧？尽管不是，也差不多了。上半场整体就是怪蜀黍诱拐/养成小萝莉的过程，有些老套和无奈。乔若莎几乎对长腿叔叔的要求言听计从，对长腿叔叔各种幻想。
+好在下半场总算没这么尴尬，乔若莎在经过更多教育和生活经历后开始有了自己的想法、思考和选择，一次次违抗了杰维斯的意志，给予下半场更多的内涵和笑点，表示每次看杰维斯各种应对然后吃瘪心理超级爽。可以说，下半场总算拯救了整部剧。
+不过兰心的音效也不算好，如果演员不是站在前台最前方，声音穿透到后排就减弱很多。小剧场的音乐剧感觉还是更喜欢大剧院的小剧场。《危险游戏》和《谋杀歌谣》都是相对效果更赞的中文版小剧场音乐剧，而这也不仅仅使剧院的原因。
+版本控制    Version Action Time     1.0 Init 2018-05-26    </description>
+    </item>
+    
+    <item>
+      <title>爱尔兰踢踏舞《王者之舞∙危险游戏》</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-05/%E7%88%B1%E5%B0%94%E5%85%B0%E8%B8%A2%E8%B8%8F%E8%88%9E%E7%8E%8B%E8%80%85%E4%B9%8B%E8%88%9E%E5%8D%B1%E9%99%A9%E6%B8%B8%E6%88%8F/</link>
+      <pubDate>Thu, 24 May 2018 20:22:13 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-05/%E7%88%B1%E5%B0%94%E5%85%B0%E8%B8%A2%E8%B8%8F%E8%88%9E%E7%8E%8B%E8%80%85%E4%B9%8B%E8%88%9E%E5%8D%B1%E9%99%A9%E6%B8%B8%E6%88%8F/</guid>
+      <description> 观剧档案 剧名：爱尔兰踢踏舞《王者之舞∙危险游戏》
+观剧地点：上海文化广场
+观剧时间：2018年5月4日 19:30
+观剧位置：4排11座
+缘起… 其实一开始，老妈有看到这个表演的广告时有问过我，我说看过了，不好看。想起17年和初中童鞋在东艺看的《王者之舞》，失望非常，除了舞王和女主还依稀有当年全盛期的影子外，整体水平一般，我初中童鞋非常专业指出，配点的，也就是踢踏声都不是现场表演的，而是录播的。
+5月4日上午看到初中童鞋看了这次《王者之舞》在文广的首演，评价不错，我就留言了。惊喜的是，童鞋问我当天晚上有时间去看不，在她推荐下，我果断去之，还拉上了两位同事一起。
+Repo 位置 票是随机发的，运气不错，是第4排中间区域的位置，不过前5排池座没阶梯，加上前面的人好高，几乎侧着看，人头挡着很不舒服。有朋友坐到后面6排，说是很空，效果很好。想着和同事一起，就没换座。
+舞美 整体来说还是不错的，比《大河之舞》的舞美要好，也比之前看的版本好。我之前大河之舞在深圳南山羽毛球馆里搭的台子看，几乎没什么舞美。这次背景有块硕大的LED屏，不仅在开始和结束时都放了一段视频（结束时的应该是之前舞王的录制视频吧），而且在中间场景切换时也换了景色。嗯，还有邪恶的坏人头也是用LED显示的。
+舞者表演 整体演员水平也都不错，踢踏舞步齐整，动作到位。按我同学的话说，是她看过除了《大河1》和《大河2》外最好的踢踏舞表演了（其实我觉得之前看的《泰坦尼克》也还不错，我同学强烈推荐《大河2: 舞起狂澜》）。全程现场表演，绝对真实够燃。
+男主是Michael，一个金色头发看上去十分年轻的小伙子，刚看他出场总觉得他有些单薄。但下半场的斗舞，特别是脱衣服后的肌肉身材，那真是，啧啧啧，没话说，直道好帅好帅，气场还十足。
+女主虽然看上去已经不算年轻，和男主相比感觉岁数大一轮，但是身材赞，特别有气质。脚下功夫也好，就看她像精灵似的，特别灵动，舞步踢得又快又高。
+男二（邪恶反派）以及女二（魅惑小猫）也都非常有特色。男二与男主的斗舞精彩非常，燃点十足。
+整体评价 因为带着同事来的，比较关心他们的看法，整体评价都很赞。超长的Encore互动十足，将气氛推向高潮。
+不过呀，不知道为什么，现在爱尔兰踢踏中小提琴及唱歌都是标配，而且现在唱的歌爱尔兰风味不是很足，也唱得不够吸引人，一般都是观众们走神入睡的时候，小提琴也不如之前表演时看到的那么激情。几乎除了硬舞鞋的踢踏之外其他都是让人走神的时候。
+于是《危险游戏》想了个招，这个版本中有特别多的肉。上半场时，女舞者阿拉伯风格的白色舞库在边缝处都分开了，还有一场特别令人惊讶地将外衣全脱了，只剩内衣内裤在舞台上跳。下半场也有不少男舞者们秀肌肉的时候。用我一个同事的话说就是，怎么还不脱，就等着看肉呢。
+《王者之舞》中间有一些穿着全身装备的人，跳的很不错，而且那些服装不透气，特别累。但表示，穿着这些，看着就没这么有力度和激情了。
+此外，《王者之舞》的故事情节真心无法言说的二，男主给小精灵修笛子，一下子就修好了，捂脸。力量的源泉是“舞王”的腰带，捂脸。不过嘛，我现在对踢踏舞的定位是，只要够燃、小鲜肉好看够帅、眼睛享受够了，其他都不是问题。
+王者之舞体验日 2018年5月6日，在好友的推荐下，参加了王者之舞的体验。很爽很开心。虽然挤到最后一排看不到最前排的Michael，但是每排都很贴心的有两三个舞者教学，又不懂的都会很耐心教。不过嘛现场大多数都是有基础的童鞋，没基础的只能跟着瞎凑热闹、瞎跳跳啦，还是很喜欢的，下次还想参加。
+之后是参观后台以及舞者服装介绍。《危险游戏》的后台果然不如《Ghost》以及《Wizard》这些大制作音乐剧的豪华，不过服装还是很不错的，有不少是特地为《危险游戏》特制的服装。
+版本控制    Version Action Time     1.0 Init 2018-05-24    </description>
+    </item>
+    
+    <item>
+      <title>现实与幻想的距离——观《深夜小狗离奇事件》repo&amp;感想</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-05/%E7%8E%B0%E5%AE%9E%E4%B8%8E%E5%B9%BB%E6%83%B3%E7%9A%84%E8%B7%9D%E7%A6%BB%E8%A7%82%E6%B7%B1%E5%A4%9C%E5%B0%8F%E7%8B%97%E7%A6%BB%E5%A5%87%E4%BA%8B%E4%BB%B6repo%E6%84%9F%E6%83%B3/</link>
+      <pubDate>Thu, 24 May 2018 10:17:35 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-05/%E7%8E%B0%E5%AE%9E%E4%B8%8E%E5%B9%BB%E6%83%B3%E7%9A%84%E8%B7%9D%E7%A6%BB%E8%A7%82%E6%B7%B1%E5%A4%9C%E5%B0%8F%E7%8B%97%E7%A6%BB%E5%A5%87%E4%BA%8B%E4%BB%B6repo%E6%84%9F%E6%83%B3/</guid>
+      <description> 前半段絮絮叨，中间段夹个repo，最后才是主题写的感想。
+观剧档案 剧名：话剧《深夜小狗离奇事件》
+剧团：英国国家剧院 National Theatre 国际巡演
+观剧地点：上海文化广场
+观剧时间：2018年5月16日 19:30
+观剧位置：4排9座
+听说《小狗》要来了…… 第一次知道《深夜小狗离奇事件 (The Curious Incident of the Dog in the Night-time)》是2013那年去纽约，在Broadway看了几场音乐剧，依稀记得在大街上见过《小狗》的宣传。之后回来了解到《小狗》非常值得一看，曾获2013年度7项奥利弗奖（2015年度5项托尼奖），虽然遗憾当时失之交臂，但时间上也的确不允许。之后也找了NTLive版，但也还未看过。
+从年初知道英国国家剧院 (National Theatre) 原版的《小狗》要来，盼望了许久。然而由于那时重点都在申请上，并没有在一开票就买。不过在4月文广的的会员日抢了张5月16日的vip半价票，终于赶上了这次巡演。
+Repo 位置 不记得是否是当时6~10排好位置都没有了，失策的买了4排9座。文广前5排是池座位，没有阶梯，自己的个子又比较矮，前排就算个子不高已经很无奈了，如果前排个子高些，基本就只能看个大头。
+好在这次前排的人个子不算高，看戏时也基本躺着，不过上半场为了看的更清楚些，就坐在自己小包上，视野正好。不过坐了大半场就开始硌着了，无奈把小包撤走。
+也算是运气不好，正好碰上一些公司活动增票，估计就是这个原因很多票被锁了。现场观众倒是不少。
+舞美 《小狗》的舞美是出色的，它本身就以现代魔幻的舞台和灯光而闻名。《小狗》的舞台不大，灯光明暗能很好地将舞台进行切分，转移观众焦点。酷炫的LED屏不仅带来十足的科技感，同时也给观众更清晰和形象地传达了演员所处的环境、氛围以及他想表达的内容，增强了交互的感觉，很有在电视上看后期处理的感觉。比如Christopher在地上画了个笑脸，后面的显示屏会出现他画的笑脸；Christopher心里想着地上出现红线，舞台地面出现红线指引的同时，LED屏上也会对应出现；在London喧闹的大都市，各种各样的Logo和叫喊声让Christopher无比紧张，LED屏上也堆积各种各样的Logo压迫着观众的视觉。这个小小的盒子样的LED舞台还渲染了Christopher想做宇航员的梦想世界。LED屏拓展了舞台的局限性，更形象地表达了导演的想法。
+表演 演员的表演都是有十足张力的。
+Christopher这个角色对力量有很高的要求。除了需要演员贯穿整场全情投入的表演所需的正常体力外，还有些特别场景需要更强地对腹部、四肢的控制及力量要求。Christopher第一次独自一人乘坐火车，害怕地躺在乘客们的行李箱上，等着其他乘客一个个将行李箱从他身下拿走，演员就靠着这么一两个行李箱作为支点还一直保持着之前蜷缩着平躺着的样子。还有Christopher刚到London有一场需要演员纯靠其他演员在下面托举完成在侧面LED屏上水平行走，不得不佩服他腹部肌肉的力量。
+而作为一个患有阿斯伯格综合征（自闭症的一种）但却在数学上有着异常天赋的少年角色，Christopher这个角色对于演员表演的要求更高。Joshua Jenkins是之前英国巡演 (UK Tour) 的第1位演员，也是这个角色的第7位扮演者。他在整场表演中面部表情总在不停抽搐，对于人们的肢体接触表现得十分恐惧甚至歇斯底里，对于一些问题又展现出这个不通人情世故的少年的天真、单纯与执拗。少年性格的展现以及与家人的冲突在下半场的离家出走开始达到高潮。第一次离开熟悉的地方独自上路，明明害怕人多嘈杂的地方却为了目标努力克服。与父母由于各种原因导致的摩擦，难以平复的情感创伤，都给人留下深刻印象。
+然而实际上，我最喜欢的演员是他的父亲和Siobhan老师。我估计有些声控吧，非常喜欢他俩的声音，听得很舒服。
+父亲和Christopher之间的情感交流几乎贯穿了整部剧。随着小狗谋杀案的展开，Christopher发觉了更多家庭的秘密，父亲与他的冲突也越发明显，也让人心疼。父亲展现得就是一个疼爱儿子却不宣之于口，但是却有些冲动鲁莽的样子。看着他因为曾经的一个谎言而不断继续隐瞒，因为一次冲动杀狗而不得不与心爱的儿子对立，儿子又不能甚至无法理解他的情感与心理，只将他视为杀人凶手，这种无奈很让人为之心疼。
+Siobhan老师从开篇开始一直作为Christopher所著书的朗读旁白，用温和慈祥的声音将Christopher不为人知的心理活动娓娓道来。作为Christopher的辅导老师，她也一直站在Siobhan的角度为他考虑和争取，为他能够融入社会做出帮助。在Christopher被冤枉时支持他去调查，并把整个故事写下来，在他父亲反对时也建议父亲可能有自己的理由；在Christopher独自一人去London时虽然茫然，但记得跟着老师的教导一步一步走向目标；Siobhan老师告诉Christopher还有机会可以参加数学考试，并在考试时Chiristopher无法集中精神时及时给予安抚。这些都让Siobhan老师的形象更为丰满。所以在结局，当Christopher问出那个让她难以回答的问题时面部通红，那种欲言又止让人恨不得替她回答。
+父亲和老师的表演很难让我去说好在哪里，但是能让人感受到演员想表达的角色的情感，就已经足以说明是一个优秀的表演了。
+现实与幻想的距离 终于到我最想说的部分了。
+结局时，Christopher非常兴奋于数学考试得了A，他高兴地问Siobhon老师，他已经能够一个人独自成功地去London了，他数学也获得了A，是不是说明他可以完成任何事情。Siobhon老师面部通红，非常为难。这是情感冲突达到最高峰的时候，观众心里的情感冲突。不少观众按耐不住眼眶通红，大声回应“YES!”。
+对，我也有这个冲动，每个人都有这个冲动，但是最让人难受的是，作为成年人，现实中的成年人，我们比任何人都知道现实的残酷。现实并不像童话故事或是戏剧中这么美好：正义必定战胜邪恶，努力一定会有成功，好的人一定有好报，认真做事有成果的人一定会有更好的回报。Christopher这么努力，已经能够克服困难完成这么多事，他不会理解现实中的困难并不仅仅这些，现实社会的人际关系、利益关系更为复杂。他有一对爱他的父母，母亲愿意为他脱鞋，为他逃离她现在生活；父亲渴望得到他的原谅，愿意找各种方法来帮助他。他在学校想要参加数学考试也有老师愿意为他争取。然而社会并不是这样，现实是，不是所有对的、应该的事情最终会发生。在工作后我更加深刻理解到这一点，这也是让我最揪心无奈的地方，所以看完小狗，我的内心是充满悲伤的。
+演出结束冲到演员出口，问Siobhon的演员，我说我知道可能这个问题作为一个开放结局更好，但我还是很想知道您在演出时是什么想法。她回答说，每次排练到这个场景时她都会特别感同身受，很难过。她觉得如果回答的话，应该是一个“Yes”，但是是一个有限的、有条件的“Yes”。意料之中，相信这也是大多数人的想法，所以大家才会更有冲动在结局替老师来回答那个肯定的答案，获得一个完美的结局，因为生活已经不完美了，不是么？
+鲁迅曾说悲剧是“将人生有价值的毁灭给人看”，《小狗》虽然并没有达到悲剧的程度，但是情绪在结尾时达到顶点确最后戛然而止，总觉得有些莫名相似。
+我话剧看的不多，难以评价如何是一个优秀的话剧，只知道怎样是个无聊的话剧或是我觉得一般的话剧。身后的观众对上半场琐碎的细节有些厌烦，甚至觉得无聊想离开，只觉得酷炫的效果还不错，但实际上那些都是背景介绍、情节发展以及人物性格刻画，并且我也并不觉得它们是枯燥乏味的。虽然很难说《小狗》是我的朱砂痣，但《小狗》无疑是部优秀的话剧，不仅话剧的舞美、灯光、演员表演都很能引人入胜、身临其境，而且话剧中有很多点都能引起共鸣，触发人思考和感悟。比如，杀死狗就不重要了么？比如，为什么Christopher从不说谎，但仍然被警局拘留被告袭警？比如父亲及母亲对Christopher的爱，比如离异后复杂的家庭关系对孩子的影响，比如Christopher的天真和执着固然值得表扬，但似乎他也并没有替他人，特别是他的父母考虑过？比如我之前提到的现实与幻想的距离。
+版本控制    Version Action Time     1.0 Init 2018-05-24    </description>
     </item>
     
   </channel>
