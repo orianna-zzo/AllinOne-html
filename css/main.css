@@ -14,10 +14,16 @@ Layout
 
 body {
   font-family: -apple-system,BlinkMacSystemFont,'Raleway', "Helvetica Neue", Arial, "PingFang SC", "Lantinghei SC", "Microsoft YaHei", sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  color: #333;
+  line-height: 1.6;
 }
 
 a {
   color: #428bca;
+}
+
+.a-inherit-color a {
+  color: inherit;
 }
 
 a:hover, a:active {
@@ -33,6 +39,9 @@ a:hover, a:active {
   background: white;
 }
 
+.dark-grey {
+  color: #666;
+}
 
 .container .content {
   padding: 0 8rem;
@@ -50,9 +59,14 @@ a:hover, a:active {
 }
 
 .post-wrapper {
-  margin: 1.5rem 0.5rem 2rem 3rem;
-  padding: 4rem 6rem;
+  margin: 0 1rem 3rem 1rem;
+  padding: 2rem 4rem 3rem;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.08), 0 2px 6px 0 rgba(0, 0, 0, 0.1); 
+}
+
+.single-post {
+  margin: 1.5rem 1rem 2rem 3rem;
+  padding: 4rem 6rem;
 }
 
 .post-header {
@@ -60,6 +74,13 @@ a:hover, a:active {
 }
 
 .post-heading {
+  /* padding-top: .5rem; */
+  /* padding-bottom: .5rem; */
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.single-post .post-heading {
   padding-top: .5rem;
   padding-bottom: .5rem;
   font-size: 2.5rem;
@@ -69,7 +90,7 @@ a:hover, a:active {
 
 .post-meta {
   color: #9e9e9e;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 400;
   line-height: 1.1rem;
   list-style: none;
@@ -77,19 +98,30 @@ a:hover, a:active {
   padding-right: 0;
   margin-bottom: 2px;
   padding-top: .25rem;
+  vertical-align: middle;
+}
+
+.post-header .post-meta {
+  font-size: 1rem;
+}
+
+.single-post .post-meta {
+  font-size: 1rem;
+}
+
+a:hover .post-meta, a:active .post-meta {
+  color: #38849e;
 }
 
 .post-meta a {
   color: #666;
 }
 
-.dark-grey {
-  color: #666;
-}
 
 .post-meta a:hover,  .post-meta a:active {
   color: #38849e;
 }
+
 
 .middot:before {
   content: "•";
@@ -104,10 +136,16 @@ a:hover, a:active {
 }
 
 
-.ul-x li { /* ul-x 表示横过来的ul */
+
+.li-x li { /* li-x 表示横过来的li */
   padding: 0 8px;
   display: inline-block;
 }
+
+.div-x div {
+  display: inline-block;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
@@ -128,6 +166,145 @@ footer .copyright {
   font-size: 0.875rem;
 }
 
+
+/* 
+
+Markdown
+
+*/
+
+.markdown h1, .markdown h2, .markdown h3, 
+.markdown h4, .markdown h5, .markdown h6 {
+  font-weight: 500;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.8rem;
+  margin-top: 2.3rem;
+}
+
+.markdown h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.markdown h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.2rem;
+  margin-top: 1.7rem;
+}
+
+.markdown h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1.25rem;
+}
+
+.markdown h5 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  margin-top: 1.25rem;
+}
+
+.markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1.25rem;
+}
+
+.markdown b, .markdown strong {
+  font-weight: 600;
+}
+
+.markdown wrap {
+  border-radius: 7px;
+  padding: .15em .5em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  border: 1px solid #ebebeb;
+  background: #f8f8f8;
+  font-size: 87.5%;
+}
+
+.markdown pre, .markdown code {
+  background-color: #f7f7f7;
+  /* font-size: 1rem; */
+}
+
+/* enclosed by single backtick (`) */
+.markdown code {
+  padding: .15em .5em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  border-radius: 4px;
+}
+
+/* enclosed by 3 backticks (```) */
+.markdown pre {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  /* white-space: pre; */
+  /* white-space: pre-wrap; */
+  /* word-break: break-all; */
+  /* word-wrap: break-word; */
+  white-space: pre;
+  tab-size: 4;
+}
+
+.markdown pre code {
+  padding: 0;
+}
+
+.markdown p {
+  margin-top: 0;
+  /* margin-bottom: 0.75em; */
+}
+
+.markdown a {
+  color: #428bca;
+}
+
+.markdown a:hover, .markdown a:active {
+  color: #38849e;
+}
+
+.markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+
+.markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown table {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  /* width: 100%; */
+  vertical-align: middle;
+  min-width: 60%;
+}
+
+.markdown table th {
+  font-weight: 600;
+  text-align: center;
+}
+
+.markdown td, .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+ .markdown tbody tr:nth-child(odd) td,
+ .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+ }
 
 /*
  
@@ -151,11 +328,16 @@ footer .copyright {
   color: #9e9e9e;
 
   padding: .25rem 0.75rem;
-  font-size: .75rem;
+  font-size: .65rem;
 
   -webkit-border-radius: 999em;
   border-radius: 999em;
   vertical-align: middle;
+}
+
+.single-post .tags-sm a {
+  font-size: .75rem;
+  padding: .25rem 0.75rem;
 }
 
 .tags-sm a:hover,  .tags-sm a:active {
@@ -329,6 +511,11 @@ toc-nav  scrollspy
   padding-bottom: 1.5rem;
   font-size: .875rem; 
 }
+
+/* .toc-nav[data-toggle=page-scrollspy] .nav-item+ul {
+  display: none;
+  padding-bottom: 10px;
+} */
 
 #TableOfContents {
   margin-left: -1rem;
@@ -644,6 +831,15 @@ toc-nav  scrollspy
   @media (min-width: 451px) and (max-width: 1025px) {
     .stepper.stepper-vertical li:not(:last-child):after {
       left: 6%; } }
+
+
+/* 
+  Card
+ */
+ 
+ 
+
+
 
 /* 
   temp

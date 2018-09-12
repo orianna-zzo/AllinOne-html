@@ -17,11 +17,9 @@
       <pubDate>Sat, 18 Aug 2018 20:14:59 +0800</pubDate>
       
       <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B014-%E8%AE%A9%E5%90%8C%E9%A1%B5%E6%BB%9A%E5%8A%A8%E6%9B%B4%E5%B9%B3%E6%BB%91/</guid>
-      <description>上一期说到增加toc侧边栏，但是直接跳转非常突兀，因此特地找了让同页跳转滚动更平滑的插件。使用步骤如下：
-配置smooth-scroll插件 首先下载smooth-scroll插件，将其中jquery.smooth-scroll.js放入js文件夹中。
-再在&amp;lt;script&amp;gt;中引入该js：
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/vendors/jquery.smooth-scroll.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  基础使用 可以在自己的js文件中加入下面的代码
-// Bind the hashchange event listener $(window).bind(&#39;hashchange&#39;, function (event) { $.smoothScroll({ // Replace &#39;#/&#39; with &#39;#&#39; to go to the correct target scrollTarget: decodeURI(location.hash.replace(/^\#\/?/, &#39;#&#39;)) }); }); $(&#39;a[href*=&amp;quot;#&amp;quot;]&#39;) .bind(&#39;click&#39;, function (event) { // Remove &#39;#&#39; from the hash. var hash = this.hash.replace(/^#/, &#39;&#39;) if (this.pathname === location.pathname &amp;amp;&amp;amp; hash) { event.preventDefault(); // Change &#39;#&#39; (removed above) to &#39;#/&#39; so it doesn&#39;t jump without the smooth scrolling location.</description>
+      <description>&lt;p&gt;上一期说到增加toc侧边栏，但是直接跳转非常突兀，因此特地找了让同页跳转滚动更平滑的插件。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -30,11 +28,16 @@
       <pubDate>Mon, 13 Aug 2018 00:14:19 +0800</pubDate>
       
       <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B011-%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%AA%E5%B0%8Ficon/</guid>
-      <description> 这部分其实很简单，只需要在index.html的&amp;lt;head&amp;gt;部分增加以下一句话就好：
-&amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; href=&amp;quot;/img/aviconfile.ico&amp;quot; &amp;gt;  不过，既然是要做主题，肯定是要用模板变量的么。因此，在模板中的增加以下内容：
-&amp;lt;!-- Icon --&amp;gt; &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; {{ if .Site.Params.faviconfile }} href=&amp;quot;/{{ .Site.Params.faviconfile }}&amp;quot; {{ else if.Site.Params.avatar}} href=&amp;quot;/{{ .Site.Params.avatar }}&amp;quot; {{ end }} &amp;gt;  其中faviconfile是在config.toml中定义的网站图标的路径，avatar是在其中定义的个人头像照片的路径。这句话就是如果定义了网站图标就使用网站图标，如果不存在网站图标就使用个人头像。
-原本想尝试在网站图标上加个蒙版的，但是好像只能有已有的图片。方的一张图感觉太死板，于是我就将之前画画的签名截了一个姓下来抠了下图，感觉还不错。
-版本控制    Version Action Time     1.0 Init 2018-08-13    </description>
+      <description>这部分其实很简单，只需要在index.html的&amp;lt;head&amp;gt;部分增加以下一句话就好： &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; href=&amp;quot;/img/aviconfile.ico&amp;quot; &amp;gt; 不过，既然是要做主题，肯定是要用模板变量的么。因此，在模板中的增加以下内容： &amp;lt;!-- Icon --&amp;gt; &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; {{ if .Site.Params.faviconfile }} href=&amp;quot;/{{ .Site.Params.faviconfile }}&amp;quot; {{ else if.Site.Params.avatar}} href=&amp;quot;/{{ .Site.Params.avatar }}&amp;quot; {{ end }} &amp;gt; 其中faviconfile是在config.toml中定义的网站图标的路径，avatar是在其中定义的个人头像照片的路径。这句话就是如果定义了网站图标就使用网站图标，如果不</description>
+    </item>
+    
+    <item>
+      <title>Blog养成记(7) Hugo多级列表无法显示? —— Markdown的bug合集</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-03/blog%E5%85%BB%E6%88%90%E8%AE%B07-hugo%E5%A4%9A%E7%BA%A7%E5%88%97%E8%A1%A8%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA--markdown%E7%9A%84bug%E5%90%88%E9%9B%86/</link>
+      <pubDate>Tue, 20 Mar 2018 16:46:17 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-03/blog%E5%85%BB%E6%88%90%E8%AE%B07-hugo%E5%A4%9A%E7%BA%A7%E5%88%97%E8%A1%A8%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA--markdown%E7%9A%84bug%E5%90%88%E9%9B%86/</guid>
+      <description>前言 又一次开始折腾Markdown了，不过这一次是因为好好的md文件，在typora中显示的好好的，但在Hugo渲染后格式就不对了，引起我这次探究主要问题在多级列表。考虑到毕竟两个软件的markdown渲染引擎不同，我并没有用到很特别的语法。之前在引用上也碰到了问题，typora中能很好地识别我想要的引用段落，但是Hugo不行。所以这次探究下是哪里出了问题，以及对应的解决方案。 既然已经提到了mar</description>
     </item>
     
   </channel>
