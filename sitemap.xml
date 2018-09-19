@@ -63,6 +63,11 @@
   </url>
   
   <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/moment/test/</loc>
+    <lastmod>2015-08-19T20:29:37-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/tags/blog/</loc>
     <lastmod>2018-08-18T20:14:59+08:00</lastmod>
     <priority>0</priority>
@@ -154,6 +159,12 @@
   <url>
     <loc>https://orianna-zzo.github.io/AllinOne-html/tags/</loc>
     <lastmod>2018-08-18T20:14:59+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://orianna-zzo.github.io/AllinOne-html/categories/test/</loc>
+    <lastmod>2015-08-19T20:29:37-07:00</lastmod>
     <priority>0</priority>
   </url>
   

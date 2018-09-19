@@ -5,10 +5,19 @@
     <link>https://orianna-zzo.github.io/AllinOne-html/categories/</link>
     <description>Recent content in Categories on Orianna</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zn-cmn-Hans</language>
+    <language>zn-Hans</language>
     
 	<atom:link href="https://orianna-zzo.github.io/AllinOne-html/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Test</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/categories/test/</link>
+      <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/categories/test/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>品鉴评论</title>

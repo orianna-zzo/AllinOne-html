@@ -5,7 +5,7 @@
     <link>https://orianna-zzo.github.io/AllinOne-html/</link>
     <description>Recent content on Orianna</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zn-cmn-Hans</language>
+    <language>zn-Hans</language>
     <lastBuildDate>Sat, 18 Aug 2018 20:14:59 +0800</lastBuildDate>
     
 	<atom:link href="https://orianna-zzo.github.io/AllinOne-html/index.xml" rel="self" type="application/rss+xml" />
@@ -92,6 +92,16 @@
       
       <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-03/blog%E5%85%BB%E6%88%90%E8%AE%B07-hugo%E5%A4%9A%E7%BA%A7%E5%88%97%E8%A1%A8%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA--markdown%E7%9A%84bug%E5%90%88%E9%9B%86/</guid>
       <description>前言 又一次开始折腾Markdown了，不过这一次是因为好好的md文件，在typora中显示的好好的，但在Hugo渲染后格式就不对了，引起我这次探究主要问题在多级列表。考虑到毕竟两个软件的markdown渲染引擎不同，我并没有用到很特别的语法。之前在引用上也碰到了问题，typora中能很好地识别我想要的引用段落，但是Hugo不行。所以这次探究下是哪里出了问题，以及对应的解决方案。 既然已经提到了mar</description>
+    </item>
+    
+    <item>
+      <title>Moment Test</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/moment/test/</link>
+      <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/moment/test/</guid>
+      <description>The Hitchhiker&amp;rsquo;s Guide to the Galaxy is a comedy science fiction series created by Douglas Adams. Originally a radio comedy broadcast on BBC Radio 4 in 1978, it was later adapted to other formats, and over several years it gradually became an international multi-media phenomenon. Adaptations have included stage shows, a &amp;ldquo;trilogy&amp;rdquo; of five books published between 1979 and 1992, a sixth novel penned by Eoin Colfer in 2009, a 1981 TV series, a 1984 computer game, and three series of three-part comic book adaptations of the first three novels published by DC Comics between 1993 and 1996. There were also two series of towels, produced by Beer-Davies, that are considered by some fans to be an &amp;ldquo;official version&amp;rdquo; of The Hitchhiker&amp;rsquo;s Guide to the Galaxy, as they include text from the first novel.
+Movie A Hollywood-funded film version, produced and filmed in the UK, was released in April 2005, and radio adaptations of the third, fourth, and fifth novels were broadcast from 2004 to 2005. Adams did many of these adaptations, including the novels, the TV series, the computer game, and the earliest drafts of the Hollywood film’s screenplay, and some of the stage shows introduced new material written by Adams.</description>
     </item>
     
   </channel>
