@@ -19,7 +19,9 @@
       <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-08/blog%E5%85%BB%E6%88%90%E8%AE%B014-%E8%AE%A9%E5%90%8C%E9%A1%B5%E6%BB%9A%E5%8A%A8%E6%9B%B4%E5%B9%B3%E6%BB%91/</guid>
       <description>&lt;p&gt;上一期说到增加toc侧边栏，但是直接跳转非常突兀，因此特地找了让同页跳转滚动更平滑的插件。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;h2 id=&#34;配置smooth-scroll插件&#34;&gt;配置smooth-scroll插件&lt;/h2&gt;
+
+&lt;p&gt;首先&lt;a href=&#34;https://github.com/kswedberg/jquery-smooth-scroll/releases&#34;&gt;下载smooth-scroll插件&lt;/a&gt;，将其中&lt;code&gt;jquery.smooth-scroll.js&lt;/code&gt;放入&lt;code&gt;js&lt;/code&gt;文件夹中。&lt;/p&gt;</description>
     </item>
     
     <item>
