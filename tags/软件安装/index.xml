@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件安装 on Orianna</title>
+    <link>https://orianna-zzo.github.io/AllinOne-html/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</link>
+    <description>Recent content in 软件安装 on Orianna</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zn-Hans</language>
+    <lastBuildDate>Tue, 30 Jan 2018 15:04:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://orianna-zzo.github.io/AllinOne-html/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mac小白探索记(1) 基本设置与常用软件</title>
+      <link>https://orianna-zzo.github.io/AllinOne-html/blog/2018-01/mac%E5%B0%8F%E7%99%BD%E6%8E%A2%E7%B4%A2%E8%AE%B01-%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Tue, 30 Jan 2018 15:04:48 +0800</pubDate>
+      
+      <guid>https://orianna-zzo.github.io/AllinOne-html/blog/2018-01/mac%E5%B0%8F%E7%99%BD%E6%8E%A2%E7%B4%A2%E8%AE%B01-%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</guid>
+      <description>序 原本打算将所有相关内容只写在一篇博文里，但后面发现越加越多，内容越来越零散，最后决定进行拆分，也变为一个系列。我是2017年底才刚开始深入使用mac，算是mac小白一枚，在探索的过程中想将一些我觉得高效实用的信息记录下来，希望其他和我一样刚开始学习mac的小伙伴们能看了后有所帮助。 第一篇主要介绍新入手mac后的基本设置与常用软件安装。终于转到有terminal的电脑上了，既然换了Mac OS，需要</description>
+    </item>
+    
+  </channel>
+</rss>
